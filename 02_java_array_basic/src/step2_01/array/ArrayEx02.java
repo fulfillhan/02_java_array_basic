@@ -7,6 +7,8 @@ public class ArrayEx02 {
 	public static void main(String[] args) {
 
 		// 배열 사용 예시1
+		
+		
 		String[] test1  = new String[3];
 		double[] test2  = new double[5];
 		char[] test3    = new char[1];
