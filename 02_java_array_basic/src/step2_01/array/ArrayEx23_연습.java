@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 
 
-public class ArrayEx23_문제 {
+public class ArrayEx23_연습 {
 
 	public static void main(String[] args) {
 		
