@@ -1,5 +1,5 @@
 package step2_01.array;
-
+// 11-24 연습 4
 import java.util.Scanner;
 
 /*
