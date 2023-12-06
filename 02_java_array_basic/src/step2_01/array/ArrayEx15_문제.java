@@ -26,36 +26,16 @@ import java.util.Scanner;
  * 
  */
 
-public class ArrayEx15_문제 {
 
-	public static void main(String[] args) {
-		
-		Scanner scan = new Scanner(System.in);
-		Random ran = new Random();
-		
-		int[] front = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
-		int[] back = new int[10];
-		int cnt  = 0;
-		
-		// 셔플 구현(Shuffle) : 배열의 요소들을 무작위로 섞음
-		while (cnt < 1000) {			
-			int tempRan = ran.nextInt(9) + 1;
-			int temp = front[0]; 
-			front[0] = front[tempRan];
-			front[tempRan] = temp;
-			cnt++;
-		}
-			
-		for (int i = 0; i < front.length; i++) {
-			System.out.print(front[i] + " ");
-		}
-		System.out.println();
-		for (int i = 0; i < front.length; i++) {
-			System.out.print(back[i] + " ");
-		}
-		System.out.println();
-			
-			
-	}
+public class ArrayEx15_문제 {
 	
+  public static void main(String[] args) {
+
+	Scanner scan = new Scanner(System.in);
+	Random ran = new Random();
+	
+	int[] front = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
+	int[] back = new int[10];
+}
+
 }
