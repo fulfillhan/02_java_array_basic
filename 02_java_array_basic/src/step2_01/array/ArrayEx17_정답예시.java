@@ -28,19 +28,22 @@ public class ArrayEx17_정답예시 {
 		
 		Scanner scan = new Scanner(System.in);
 		
-		int[] game	 = new int[9];
+		int[] game	 = new int[9];//  틱택토 게임보드를 나타내는 배열 0은 빈칸, 
 		int win  	 = 0;
-		int turn     = 0;
+		int turn     = 0; //현재의 턴을 나타내는 변수
 		
-		while (true) {
+		while (true) {// 게임 진행
 			
 			System.out.println("=== 틱택토 ===");
-			for (int i = 0; i < game.length; i++) {
+			for (int i = 0; i < game.length; i++) { // 보드 출력
 				if (game[i] == 0) 		 System.out.print("[ ]");
 				else if (game[i] == 1)   System.out.print("[O]");
 				else if (game[i] == 2)   System.out.print("[X]");
 				
-				if (i % 3 == 2) {
+				//-> i는 반복 변수로서 
+				//i % 3의 값은 각각 0, 1, 2, 0, 1, 2, 0, 1, 2가 되고, 따라서 조건 i % 3 == 2는 2번째 열에서만 true 된다
+				//세번째 열에서 줄을 바꾸어 보드판이 출력되도록 한다.
+				if (i % 3 == 2) { 
 					System.out.println();
 				}
 			}
@@ -54,7 +57,7 @@ public class ArrayEx17_정답예시 {
 				break;				
 			} 
 			
-			if (turn % 2 == 0) {
+			if (turn % 2 == 0) { // 턴의 짝수이면 p1의 턴
 				System.out.print("[p1]인덱스 입력 : ");
 				int idx = scan.nextInt();
 				
@@ -64,7 +67,7 @@ public class ArrayEx17_정답예시 {
 				}
 				
 			} 
-			else if (turn % 2 == 1) {
+			else if (turn % 2 == 1) {//홀수이면 p2의 턴
 				System.out.print("[p2]인덱스 입력 : ");
 				int idx = scan.nextInt();
 				
@@ -73,15 +76,17 @@ public class ArrayEx17_정답예시 {
 					turn++;
 				}				
 			}
-			
+			//게임 승리 여부 검사
 			// 가로 검사
-			for (int i = 0; i <= 6; i+=3) {
+			for (int i = 0; i <= 6; i+=3) {// i = 0,3,6 으로 초기화되어, 각각 첫번째,두번째,세번째 행을 나타낸다
+				// 조건식 : 현재의 행에 같은 플레이어가 있는지 확인
 				if (game[i] == 1 && game[i+1] == 1 && game[i+2] == 1) win = 1;
 				if (game[i] == 2 && game[i+1] == 2 && game[i+2] == 2) win = 2;
 			}
 			
 			// 세로 검사
-			for (int i = 0; i < 3; i++) {
+			for (int i = 0; i < 3; i++) {// i = 0,1,2 으로 초기화되어, 각각 첫번째, 두번째,세번째 열을 나타낸다.
+				//조건식 :  현재의 열에 같은 플레이어가 있는지 확인.
 				if (game[i] == 1 && game[i+3] == 1 && game[i+6] == 1) win = 1;
 				if (game[i] == 2 && game[i+3] == 2 && game[i+6] == 2) win = 2;
 			}
