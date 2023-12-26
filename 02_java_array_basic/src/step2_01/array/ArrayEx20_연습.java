@@ -35,7 +35,7 @@ public class ArrayEx20_연습 {
 				//->여기서 부터 다시하기
 				if (insertIdx >= 0 && insertIdx <= elementCnt && elementCnt < arr.length) {
 					// 배열의 요소를 오른쪽으로 이동시키기
-					for (int i = elementCnt; i < insertIdx; i--) {
+					for (int i = elementCnt; i > insertIdx; i--) {
 						arr[i] = arr[i - 1];
 					}
 					arr[insertIdx] = insertData;

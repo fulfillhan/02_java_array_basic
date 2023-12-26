@@ -13,19 +13,19 @@ import java.util.Scanner;
 
 public class ArrayEx20_분석 {
 	
+
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
 		
 		int[] arr = {10 , 20 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0};
-		int elementCnt = 0;
+		int elementCnt = 2;
 		int selectMenu = 0;
-		int index = 0;
-		int data = 0;
 		
-		while (true) {//무한 반복
+		while(true) {
 			
-			System.out.println(Arrays.toString(arr));//문자열화 출력
+			System.out.println(Arrays.toString(arr));
+			System.out.println();
 			
 			System.out.println("[1]삽입");
 			System.out.println("[0]종료");
@@ -33,29 +33,36 @@ public class ArrayEx20_분석 {
 			System.out.print("메뉴 선택 : ");
 			selectMenu = scan.nextInt();
 			
-			if (selectMenu == 1) {//삽입할 시
+			if (selectMenu == 1) {
 				
-				if (elementCnt == arr.length) {//배열의 길이와 같다면
+				if (elementCnt == arr.length) {
 					System.out.println("더 이상 삽입할 수 없습니다.");
 					continue;
 				}
 				
 				System.out.print("삽입할 위치 입력 : ");
-				index = scan.nextInt();	//if 값 사용해서 범위 정하기
-				if (index < 0 || index > elementCnt) {
-					System.out.println("이 위치에 입력할 수 없습니다.");
+				int idx = scan.nextInt();
+				
+				if (idx < 0 || idx > elementCnt) {
+					System.out.println("이 위치에는 삽입하실수 없습니다.");
+					continue;
 				}
 				
 				System.out.print("삽입할 값 입력 : ");
-				data = scan.nextInt();//배열을 통해서 삽입할 값 들어가게끔 해야한다
+				int data = scan.nextInt();
+				
+				for(int i = elementCnt; i > idx ; i--) {
+					arr[i] = arr[i-1];
+				}
+				
+				arr[idx] = data;
+				elementCnt++;
 				
 			}
-			else {//selelctMenu == 0
+			else if (selectMenu == 0) {
 				scan.close();
 				break;
 			}
-			
-				
 			
 		}
 
