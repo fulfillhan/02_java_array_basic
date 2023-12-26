@@ -3,62 +3,56 @@ package step2_01.array;
 import java.util.Arrays;
 import java.util.Scanner;
 
-/*
- * # 배열 컨트롤러[1단계] : 삽입
- * 
- * 데이터들 중간 사이에 새로운 데이터를 추가하는 것은 삽입이라고 한다.
- * 정답을 보고 소스를 동작을 해본뒤에 소스를 이해하고 코드를 작성해보자.
- * 
- */
-
+//2023-12-26
 public class ArrayEx20_연습 {
-	
+	//-> 여기서부터 시작!
 	public static void main(String[] args) {
-		
-		Scanner scan = new Scanner(System.in);
+		Scanner scanner =new Scanner(System.in);
 		
 		int[] arr = {10 , 20 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0};
-		int elementCnt = 0;
-		int selectMenu = 0;
-		int index = 0;
-		int data = 0;
+		int elementCnt = 2; //현재 요소의 개수
+		int insertIdx = 0;
+		int insertData = 0;
 		
-		while (true) {//무한 반복
+		while (true) {
 			
-			System.out.println(Arrays.toString(arr));//문자열화 출력
+			System.out.println(Arrays.toString(arr));//문자열화
 			
-			System.out.println("[1]삽입");
-			System.out.println("[0]종료");
-			
+			System.out.println("[1] 삽입");
+			System.out.println("[0] 종료");
 			System.out.print("메뉴 선택 : ");
-			selectMenu = scan.nextInt();
+			int sel = scanner.nextInt();
 			
-			if (selectMenu == 1) {//삽입할 시
-				
-				if (elementCnt == arr.length) {//배열의 길이와 같다면
-					System.out.println("더 이상 삽입할 수 없습니다.");
-					continue;
-				}
-				
+			if (sel == 1) {
 				System.out.print("삽입할 위치 입력 : ");
-				index = scan.nextInt();	//if 값 사용해서 범위 정하기
-				if (index < 0 || index > elementCnt) {
-					System.out.println("이 위치에 입력할 수 없습니다.");
+				insertData = scanner.nextInt();
+				
+				System.out.print("사입할 데이터 입력 : ");
+				insertData = scanner.nextInt();
+				
+				//배열의 데이터 삽입
+				//범위 정하기
+				//->여기서 부터 다시하기
+				if (insertIdx >= 0 && insertIdx <= elementCnt && elementCnt < arr.length) {
+					// 배열의 요소를 오른쪽으로 이동시키기
+					for (int i = elementCnt; i < insertIdx; i--) {
+						arr[i] = arr[i - 1];
+					}
+					arr[insertIdx] = insertData;
+					elementCnt++;
+				} else {
+					//삽입 불가능한 조건일 경우
+					if (elementCnt >= arr.length) {
+						System.out.println("길이를 초과합니다!");
+						
+					}else {
+						System.out.println("올바른 삽입 위치를 선택하세요!");
+					}
 				}
-				
-				System.out.print("삽입할 값 입력 : ");
-				data = scan.nextInt();//배열을 통해서 삽입할 값 들어가게끔 해야한다
-				
+
 			}
-			else {//selelctMenu == 0
-				scan.close();
-				break;
-			}
-			
-				
-			
+
 		}
-
-
 	}
+
 }
