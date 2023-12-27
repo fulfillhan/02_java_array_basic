@@ -1,6 +1,7 @@
 package step2_01.array;
-
+//2023-12-27 
 import java.util.Scanner;
+
 
 /*
  * # 배열 컨트롤러[1단계] : 최종
@@ -31,8 +32,30 @@ public class ArrayEx22_연습 {
 			System.out.println("2삽입");
 			System.out.println("3삭제");
 			System.out.println("4종료\n");
+			
 			System.out.print("입력 : ");
 			selectMenu = scan.nextInt();
+			
+			if (selectMenu == 1) {
+				
+				System.out.print("추가할 위치 입력 : ");
+				int addData = scan.nextInt();
+				
+				if (elementCnt >= arr.length) {
+					System.out.println("배열의 크기를 넘어갑니다!");
+					continue;
+				}
+				arr[elementCnt] = addData;
+				elementCnt++;
+				
+			}else if (selectMenu == 2) {
+				//-> 여기서부터
+				
+			}else if (selectMenu == 3) {
+				
+			}else if(selectMenu == 4) {
+				break;
+			}
 			
 		}
 		

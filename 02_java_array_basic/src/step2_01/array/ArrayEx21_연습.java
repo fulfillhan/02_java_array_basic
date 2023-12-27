@@ -3,70 +3,49 @@ package step2_01.array;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
-/*
- * # 배열 컨트롤러[1단계] : 삭제
- * 
- * 정답을 보고 소스를 동작을 해본뒤에 소스를 이해하고 코드를 작성해보자.
- * 
- */
-
-
-
 public class ArrayEx21_연습 {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
 
-public static void main(String[] args) {
-		
-		Scanner scan = new Scanner(System.in);
-		
-		int[] arr = {10, 20, 30, 40, 50};
+		int[] arr = { 10, 20, 30, 40, 50 };
 		int elementCnt = 5;
 		int selectMenu = 0;
-		
+
 		while (true) {
-			
 			System.out.println(Arrays.toString(arr));
 			System.out.println();
 
-			System.out.println("[1]삭제");
-			System.out.println("[0]종료");
-			
+			System.out.print("[1]삭제\n[0]종료\n");
 			System.out.print("메뉴 선택 : ");
-			selectMenu = scan.nextInt();
+			int sel = scanner.nextInt();
 
-			if (selectMenu == 1) {
-				
-				System.out.print("삭제할 값 입력 : ");
-				int data = scan.nextInt();
-				
+			if (sel == 1) {
+
+				System.out.print("삭제할 데이터 입력 : ");
+				int data = scanner.nextInt();
 				int delIdx = -1;
 				for (int i = 0; i < elementCnt; i++) {
-					if (arr[i] == data) { // 10,20,30,40,50   < 30
+					if (arr[i] == data) {
 						delIdx = i;
 					}
 				}
-				
-				if (delIdx == -1) {//(delIdx <= -1|| delIdx > 4) {
-					System.out.println("입력하신 값은 존재하지 않습니다.");
-				} 
-				else {
-					for (int i = delIdx; i < elementCnt - 1; i++) {
-						arr[i] = arr[i+1];//arr[3] = arr[4]
-					} //  // 10,40,50,0,0 
-					elementCnt--;
-					arr[elementCnt] = 0; 
+				if (delIdx == -1) {
+					System.out.println("데이터를 재확인 해주세요!\n");
 				}
-				
-			}
-			else if (selectMenu == 0) {
-				scan.close();
+				else {
+					//삭제 배열 찾기- 삭제하는 위치에서부터 마지막위치값 전까지만
+					for (int i = delIdx; i < elementCnt-1 ; i++) {
+						arr[i] = arr[i+1];//값이 앞으로 이동
+					}
+					elementCnt--;
+					arr[elementCnt] = 0;//맨 뒤에 있는 값은 0으로
+				}
+			} else if (sel == 0) {
+				System.out.println("==종료==");
 				break;
 			}
 
 		}
-		
 	}
-		
+
 }
-
-
