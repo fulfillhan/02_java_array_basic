@@ -38,18 +38,26 @@ public class ArrayEx22_연습 {
 			
 			if (selectMenu == 1) {
 				
-				System.out.print("추가할 위치 입력 : ");
-				int addData = scan.nextInt();
-				
 				if (elementCnt >= arr.length) {
 					System.out.println("배열의 크기를 넘어갑니다!");
 					continue;
 				}
+				System.out.print("추가할 위치 입력 : ");
+				int addData = scan.nextInt();
+				
 				arr[elementCnt] = addData;
 				elementCnt++;
 				
 			}else if (selectMenu == 2) {
-				//-> 여기서부터
+				
+				int idx = -1;
+				 System.out.print("삽입할 위치를 입력하세요 : ");
+				 int myIdx = scan.nextInt();
+				 System.out.print("삽입할 데이터를 입력하세요 : ");
+				 int myData = scan.nextInt();
+				 
+				
+				 
 				
 			}else if (selectMenu == 3) {
 				
