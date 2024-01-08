@@ -3,7 +3,7 @@ import java.util.Arrays;
 //2023-12-26
 import java.util.Scanner;
 
-public class ArrayEx24_테스트문제1_1_연습풀이 {
+public class ArrayEx24_테스트문제1_1_연습 {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in); 
