@@ -176,9 +176,14 @@ public class ArrayEx24_테스트문제1_3 {
 			}
 			i++;
 		}
+		System.out.print("s = {");
 		for (int k = 0; k < s.length; k++) {
-			System.out.print(s[k]+ " ");
+			System.out.print(s[k]);
+			if(k <  s.length-1) {
+				System.out.print(" , ");
+			}
 		}
+		System.out.println("}");
 		
 	}
 
